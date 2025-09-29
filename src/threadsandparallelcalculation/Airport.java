@@ -17,7 +17,14 @@ public class Airport {
 		
 	}
 	public void decrease() {
-		// decrecer el valor de la variable por uno
+		/*
+		 *  decrecer el valor de la variable por uno
+		 *  candado o llave 
+		 *  cualquier hilo para poder acceder un trozo de codigo
+		 *  sincromizado, tiene que obtener primero un candado para el acceso, 
+		 *  al obtener el candado, ningun otro puede acceder al mismo codigo
+		 *  hasta que el hilo que ocupa e candado libera el candado
+		 */
 		synchronized(this) {
 		counter--;
 	}

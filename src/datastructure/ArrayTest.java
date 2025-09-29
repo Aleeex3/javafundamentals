@@ -1,5 +1,7 @@
 package datastructure;
 
+import java.security.PrivateKey;
+
 public class ArrayTest {
 
 	public static void main(String[] args) {
@@ -8,13 +10,9 @@ public class ArrayTest {
 		System.out.println(1==1);	
 				
 		int[] score = {12, 123123, 435};
-		int sum = score[0] + score[1] + score[2] ;
-		System.out.println("the total score is " + sum);
-		int totalScore = 0;
-		for (int i = 0; i < score.length; i++) {
-			totalScore = score[i] + totalScore;
-		}		
-		System.out.println("the total score is " + totalScore);
+		
+		sumup(score);
+		findMaxMin(score);
 		//Un array
 		User[] clients = new User[4];
 		//Store a user object at the first position of the array
@@ -40,6 +38,41 @@ public class ArrayTest {
  		User[] users = {new User(), new User(0, "amno", "pas", false, 0)};
  		System.out.println(users.length);
  		System.out.println(users[2]);
+	}
+ 		
+ 		private static void findMaxMin(int[]score) {
+ 			int max = 5000000;
+ 			int min = score[score.length -1 ];
+ 			for (int i = 0; i < score.length; i++) {
+ 				/**
+ 				 * si 'max' es menor que el 
+ 				 * dato actual que hemos cogido
+ 				 * score[i] max = score [i]
+ 				 * 
+ 				 */
+// 				if (condition) {
+// 					statement;
+// 				}
+// 				else {
+// 					statement;
+// 				}
+ 				if (max < score [i]) {
+ 					max = score[i];
+ 				}
+ 				
+			}
+		System.out.println( "the maximun value is" + max);
+	}
+
+	private static void sumup(int[] score) {
+		int sum = score[0] + score[1] + score[2] ;
+		System.out.println("the total score is " + sum);
+		int totalScore = 0;
+		for (int i = 0; i < score.length; i++) {
+			totalScore = score[i] + totalScore;
+		}		
+		System.out.println("the total score is " + totalScore);
+		// TODO Auto-generated method stub
 		
 	}
 }

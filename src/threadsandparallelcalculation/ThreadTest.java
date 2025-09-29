@@ -13,11 +13,17 @@ public class ThreadTest {
 		Airport airport = new Airport();
 		
 		// Creacion de un nuevo hilo
-		Thread thread1 = new Thread(new EntranceRegistrationTask(airport));
+		Thread machine1 = new Thread(new EntranceRegistrationTask(airport));
 		// Ejecuta la tarea que tiene el hilo
-		thread1.start();
-		Thread thread2 = new Thread(new ExitRegistrationTask(airport));
-		thread2.start();
+		machine1.start();
+		Thread machine2 = new Thread(new ExitRegistrationTask(airport));
+		machine2.start();
+		
+		Thread exitmachine1 = new Thread(new ExitRegistrationTask(airport));
+		exitmachine1.start();
+		
+		Thread exitmachine2 = new Thread(new ExitRegistrationTask(airport));
+		exitmachine2.start();
 		try {
 			// Hace que el hilo main se duerma 4 segundos
 			Thread.sleep(4000);

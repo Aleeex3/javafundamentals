@@ -15,8 +15,14 @@ public class User {
 
 	/**
 	 * constructors
+	 * @param b 
+	 * @param i2 
+	 * @param string3 
+	 * @param string2 
+	 * @param i 
+	 * @param string 
 	 */
-	public User() {
+	public User(String string, int i, String string2, String string3, int i2, boolean b) {
 
 	}
 

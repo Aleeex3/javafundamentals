@@ -16,7 +16,8 @@ public class SearchingTest {
 		
 		String targetName = "Luis";
 		System.out.println("Luis" == targetName);
-		//InputStream in = System.in;
+		
+		 //InputStream in = System.in;
 		
 		// 1 Crea un array de objetos de usuario
 		// 2 Usamos multiples hilos para encontrar un usuario concreto
@@ -30,5 +31,18 @@ public class SearchingTest {
 			if(Clients[i].getUsername() == targetName);
 			System.out.println(Clients[i].getId());
 		}
+		searchWithOneThread(targetName, Clients);
+		searchingWithMultipleThreads(targetName, Clients);
+
+	}
+
+	private static void searchingWithMultipleThreads(String targetName, User[] clients) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void searchWithOneThread(String targetName, User[] clients) {
+		// TODO Auto-generated method stub
+		
 	}		
 }

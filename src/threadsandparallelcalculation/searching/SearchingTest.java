@@ -38,11 +38,34 @@ public class SearchingTest {
 
 	private static void searchingWithMultipleThreads(String targetName, User[] clients) {
 		// TODO Auto-generated method stub
+		int index = clients.length / 4;
+		//Thread thread1 = new Thread(new UserSearchingTask(targetName, clients, 0, index));
+		//Thread thread2 = new Thread(new UserSearchingTask(targetName, clients, index , 2*  index));
+		//Thread thread3 = new Thread(new UserSearchingTask(targetName, clients, 2*  index, 3 * index ));
+		//Thread thread4 = new Thread(new UserSearchingTask(targetName, clients, 3 * index , 4 * index));
+		//thread1.start();
+	//	thread2.start();
+		//thread3.start();
+		//thread4.start();
+		int numOfThreads = Runtime.getRuntime().availableProcessors();
+		index = clients.length / numOfThreads;
+		for (int i = 0; i < numOfThreads; i++) {
+			Thread thread5 =
+						new Thread(new UserSearchingTask(targetName, clients, i * index , i * index + index));
+			thread5.start();
+			
+		}
+
 		
 	}
 
 	private static void searchWithOneThread(String targetName, User[] clients) {
 		// TODO Auto-generated method stub
+		 for ( int i = 0; i < clients.length; i++) {
+			 if (clients [i].getUsername() == targetName) {
+				 System.out.println("id of the user is" + clients[i].getId());
+			 }
+		 }
 		
 	}		
 }

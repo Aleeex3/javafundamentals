@@ -14,7 +14,7 @@ public class SearchingTest {
 	
 	public static void main(String[] args) {
 		
-		String targetName = "Luis";
+		String targetName = "Luis4000000";
 		System.out.println("Luis" == targetName);
 		
 		 //InputStream in = System.in;
@@ -22,17 +22,32 @@ public class SearchingTest {
 		// 1 Crea un array de objetos de usuario
 		// 2 Usamos multiples hilos para encontrar un usuario concreto
 		// An array of user
-		User[] Clients = new User[20000];
+		User[] Clients = new User[20000000];
 		for (int i = 0; i < Clients.length; i++) {
 			Clients[i] = new User("Luis" + i, i, "emilianogmail0", "arribadds", i, false);
 		}
 		
 		for (int i = 0; i < Clients.length; i++) {
-			if(Clients[i].getUsername() == targetName);
-			System.out.println(Clients[i].getId());
+			if(Clients[i].getUsername().equals(targetName));
+//			System.out.println(Clients[i].getId());
 		}
+		long startTime = System.currentTimeMillis();
 		searchWithOneThread(targetName, Clients);
+		long endTime = System.currentTimeMillis();
+		System.out.println("the time used by the single thread mode is" + (endTime - startTime));
+		
+		
+		startTime = System.currentTimeMillis();
 		searchingWithMultipleThreads(targetName, Clients);
+		
+		try {
+			Thread.sleep(1000000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		endTime = System.currentTimeMillis();
+		System.out.println(" the time used by multiple threads mode is " +(endTime - startTime));
 
 	}
 
@@ -51,7 +66,7 @@ public class SearchingTest {
 		index = clients.length / numOfThreads;
 		for (int i = 0; i < numOfThreads; i++) {
 			Thread thread5 =
-						new Thread(new UserSearchingTask(targetName, clients, i * index , i * index + index));
+						new Thread(new UserSearchingTask(targetName, clients, i * index , i * index + index, Thread.currentThread()));
 			thread5.start();
 			
 		}
@@ -62,7 +77,7 @@ public class SearchingTest {
 	private static void searchWithOneThread(String targetName, User[] clients) {
 		// TODO Auto-generated method stub
 		 for ( int i = 0; i < clients.length; i++) {
-			 if (clients [i].getUsername() == targetName) {
+			 if (clients [i].getUsername().equals(targetName)) {
 				 System.out.println("id of the user is" + clients[i].getId());
 			 }
 		 }

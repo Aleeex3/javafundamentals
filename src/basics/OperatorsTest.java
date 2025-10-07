@@ -4,6 +4,29 @@ public class OperatorsTest {
 	
 public static void main(String[] args) {
 	arithmeticOperation();
+	logicalOperatorsTest();
+}
+
+private static void logicalOperatorsTest() {
+	// TODO Auto-generated method stub
+	System.out.println(true || true);
+	System.out.println(true || false);
+	System.out.println(false || true);
+	System.out.println(false || false);
+	
+	System.out.println(true && true);
+	System.out.println(true && false);
+	System.out.println(false && true);
+	System.out.println(false && false);
+
+	boolean eyeClosed = false;
+	boolean breathSlow = true;
+	if (eyeClosed && breathSlow) {
+		System.out.println("is sleeping");
+	}
+	else {
+		System.out.println("not sleeping");
+	}
 
 }
 

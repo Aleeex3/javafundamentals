@@ -22,8 +22,12 @@ public class User {
 	 * @param i 
 	 * @param string 
 	 */
-	public User(String string, int i, String string2, String string3, int i2, boolean b) {
-
+	public User(String name, int id, String password, String email, float balance, boolean isVIP) {
+		this.id =id;
+		this.psw = password;
+		this.username =  name;
+		this.balance = balance;
+		
 	}
 
 	public User(long id) {
